@@ -4,9 +4,9 @@ from unittest import mock
 from tests.factories import ClassFactory
 from tests.factories import FactoryTestCase
 from xsdata.builder import ClassBuilder
-from xsdata.models.elements import Include
-from xsdata.models.elements import Override
-from xsdata.models.elements import Schema
+from xsdata.models.xsd import Include
+from xsdata.models.xsd import Override
+from xsdata.models.xsd import Schema
 from xsdata.transformer import SchemaTransformer
 from xsdata.writer import CodeWriter
 

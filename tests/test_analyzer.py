@@ -11,10 +11,10 @@ from tests.factories import FactoryTestCase
 from xsdata.analyzer import ClassAnalyzer
 from xsdata.exceptions import AnalyzerError
 from xsdata.models.codegen import Class
-from xsdata.models.elements import ComplexType
-from xsdata.models.elements import Element
-from xsdata.models.elements import SimpleType
 from xsdata.models.enums import DataType
+from xsdata.models.xsd import ComplexType
+from xsdata.models.xsd import Element
+from xsdata.models.xsd import SimpleType
 
 
 class ClassAnalyzerTests(FactoryTestCase):

@@ -11,11 +11,11 @@ from tests.factories import FactoryTestCase
 from tests.factories import RestrictionsFactory
 from xsdata.models.codegen import AttrType
 from xsdata.models.codegen import Restrictions
-from xsdata.models.elements import ComplexType
-from xsdata.models.elements import Element
-from xsdata.models.elements import SimpleType
 from xsdata.models.enums import DataType
 from xsdata.models.enums import Tag
+from xsdata.models.xsd import ComplexType
+from xsdata.models.xsd import Element
+from xsdata.models.xsd import SimpleType
 from xsdata.utils.classes import ClassUtils
 
 
