@@ -10,43 +10,21 @@ from typing import Optional
 from typing import Union as UnionType
 
 from xsdata.exceptions import SchemaValueError
-from xsdata.formats.dataclass.models.constants import XmlType
 from xsdata.formats.dataclass.serializers import XmlSerializer
 from xsdata.models.enums import DataType
 from xsdata.models.enums import FormType
 from xsdata.models.enums import Mode
 from xsdata.models.enums import Namespace
-from xsdata.models.enums import NamespaceType
 from xsdata.models.enums import ProcessType
 from xsdata.models.enums import UseType
+from xsdata.models.helpers import array_any_element
+from xsdata.models.helpers import array_element
+from xsdata.models.helpers import attribute
+from xsdata.models.helpers import element
+from xsdata.models.helpers import occurrences
 from xsdata.models.mixins import ElementBase
 from xsdata.utils import text
 from xsdata.utils.text import collapse_whitespace
-
-
-def attribute(default: Anything = None, init: bool = True, **kwargs: str) -> Anything:
-    kwargs.update(type=XmlType.ATTRIBUTE)
-    return field(init=init, default=default, metadata=kwargs)
-
-
-def element(init: bool = True, **kwargs: str) -> Anything:
-    kwargs.update(type=XmlType.ELEMENT)
-    return field(init=init, default=None, metadata=kwargs)
-
-
-def array_element(init: bool = True, **kwargs: str) -> Anything:
-    kwargs.update(type=XmlType.ELEMENT)
-    return field(init=init, default_factory=list, metadata=kwargs)
-
-
-def array_any_element(init: bool = True, **kwargs: str) -> Anything:
-    kwargs.update(type=XmlType.WILDCARD, namespace=NamespaceType.ANY.value)
-    return field(init=init, default_factory=list, metadata=kwargs)
-
-
-def occurrences(min_value: int, max_value: UnionType[int, str]) -> Dict[str, int]:
-    max_value = sys.maxsize if max_value == "unbounded" else int(max_value)
-    return dict(min_occurs=min_value, max_occurs=max_value)
 
 
 @dataclass(frozen=True)
